@@ -1,0 +1,24 @@
+div class="user-index-page"
+  = render "partial/navbar"
+
+  div class="swipe"
+
+    div class="swipe--cards"
+      - @users.each do |user| 
+        div class="swipe--card" id=" #{user.id}"
+          - if user.profile_image.url.nil? 
+            div class="profile-default-img"
+          - else 
+            = image_tag user.profile_image.url, class: "profile-img" 
+          p class="profile-name"
+            = user.name 
+
+      div class="no-user"
+       近くにお相手がいません
+
+    div class="swipe--buttons"
+      button id="dislike"
+       i class="fas fa-times fa-2x"
+      button id="like"
+       i class="fas fa-heart fa-2x"
+    

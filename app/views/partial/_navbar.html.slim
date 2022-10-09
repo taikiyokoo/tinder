@@ -1,0 +1,9 @@
+ nav class="navbar navbar-light"
+    =link_to users_path,class: "nav-item nav-link",data: { turbolinks: :false } do 
+     i class="fas fa-fire fa-lg inherit"
+
+    =link_to matching_index_path, class: "nav-item nav-link" do 
+     i class="fas fa-comments fa-lg inherit"
+     
+    =link_to user_path(@user), class: "nav-item nav-link" do 
+     i class="fas fa-user fa-lg inherit"

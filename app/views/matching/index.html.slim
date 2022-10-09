@@ -1,0 +1,21 @@
+div class="matching-index-page"
+  = render "partial/navbar" 
+
+  div class="matching"
+    p class="matching-title ml-3" メッセージ
+    p class="matching-num" 
+        = "マッチング中のお相手 #{@matching_user.size}人"
+
+    div class="matching__list"
+      - unless @matching_user.empty? 
+        - @matching_user.each do |user|
+         div class="matching__person"
+            = link_to chatrooms_path(params: { user_id: user.id }), method: :post do
+                -if user.profile_image.url.nil? 
+                    div class="matching__person-default-img"
+                -else 
+                    = image_tag user.profile_image.url, class: "matching__person-img" 
+
+            div class="matching__person-name"
+                = user.name 
+
