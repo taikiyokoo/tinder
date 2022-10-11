@@ -20,6 +20,10 @@
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード" %>
         </div>
 
+        <div class="form-group">
+          <%= f.select(:university,["東京大学","京都大学","東京工業大学","一橋大学","大阪大学","東北大学"], class: "form-select") %>
+        </div>
+
         <div class="btn-group btn-group-toggle d-flex mb-3" data-toggle="buttons">
           <label class="btn btn-light flex-fill mr-2 active">
             <%= f.radio_button :gender, :man, class: "form-check-input" %>

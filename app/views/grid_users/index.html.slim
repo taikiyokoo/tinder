@@ -1,0 +1,10 @@
+.page
+    = render "partial/navbar"
+    .user-icon
+        -@users.each do |user|
+            =link_to user_path(user)
+                .profile-image
+                    -if user.profile_image.url
+                        =image_tag user.profile_image.url
+                    -else
+                        div class="profile-default-img"

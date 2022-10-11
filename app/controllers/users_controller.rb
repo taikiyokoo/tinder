@@ -8,5 +8,6 @@ end
 
 def show
     @user = User.find(params[:id])
+    @reaction=Reaction.find_by(to_user:@user.id,from_user:current_user.id)
 end
 end

@@ -17,6 +17,13 @@ class User < ApplicationRecord
 
   mount_uploader :profile_image, ProfileImageUploader
 
+  
+
+  def like_user?(user)
+    return true if Reaction.find_by(to_user: user.id,from_user: self.id,status: 0)
+    false
+  end
+
   def update_without_current_password(params, *options)
 
     if params[:password].blank? && params[:password_confirmation].blank?

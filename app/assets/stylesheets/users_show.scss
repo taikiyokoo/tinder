@@ -2,6 +2,7 @@
     max-width: 414px;
     margin: 0 auto;
     padding:10px 50px;
+    height:80vh;
     .profile {
       display: flex;
       flex-direction: column;
@@ -29,6 +30,10 @@
         padding: 16px 24px 16px;
         word-break: break-all;
       }
+    }
+    .like-btn{
+      margin-top:50px;
+      margin-left: 105px;
     }
   }
   

@@ -14,15 +14,25 @@
       =@user.self_introduction
   
  -if current_user.id == @user.id 
- div class="user-action"
-      div class="user-action-common"
-        = link_to destroy_user_session_path,method: :delete do 
-          i class="fas fa-sign-out-alt fa-2x"
-        span ログアウト
-      div class="user-action-common"
-        = link_to edit_user_registration_path do 
-          i class="fas fa-pencil-alt fa-2x"
-        span 情報を編集
+  div class="user-action"
+        div class="user-action-common"
+          = link_to destroy_user_session_path,method: :delete do 
+            i class="fas fa-sign-out-alt fa-2x"
+          span ログアウト
+        div class="user-action-common"
+          = link_to edit_user_registration_path do 
+            i class="fas fa-pencil-alt fa-2x"
+          span 情報を編集
+ -unless current_user.id==@user.id
+  .like-btn
+    -if current_user.like_user?(@user)
+      =link_to reaction_path(@reaction),method: :delete
+        button type="button" class="btn btn-outline-secondary" いいね済み
+    -else
+      =link_to reactions_path(user_id:"#{@user.id}",reaction: "like",content: "nil"),method: :post
+        button type="button" class="btn btn-outline-primary" いいねする
+      
+
    
 
     
